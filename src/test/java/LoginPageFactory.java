@@ -12,9 +12,7 @@ public class LoginPageFactory {
     @FindBy(xpath="//button[@type='submit']")
     private WebElement loginButton;
 
-    //INICIALIZALNI KELL AZ ELEMEKET
     public LoginPageFactory(WebDriver driver) {
-//        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
