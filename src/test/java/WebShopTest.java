@@ -29,9 +29,6 @@ public class WebShopTest {
         Assertions.assertEquals("https://www.michaelclement.eu/practice-webshop-products/", driver.getCurrentUrl());
     }
 
-    //ToDo
-    //a button click test-eket hogyan lehet ertelmesen elfail-eltetni?
-
     @Test
     public void testContactButton(){
         validLogin();

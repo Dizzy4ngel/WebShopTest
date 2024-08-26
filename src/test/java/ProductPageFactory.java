@@ -43,10 +43,8 @@ public class ProductPageFactory {
             capMinusButton.click();
     }
 
-    //Todo
-    //itt jo, ha String-kent irom bele?
-    public void fillCapQuantityField(String quantity){
-        capQuantityField.sendKeys(quantity);
+    public void fillCapQuantityField(Integer quantity){
+        capQuantityField.sendKeys(String.valueOf(quantity));
     }
 
     public void clickMugPlusButton(){
