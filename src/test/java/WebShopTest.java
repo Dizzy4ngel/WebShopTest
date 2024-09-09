@@ -1,8 +1,15 @@
+import eu.michaelclement.util.DriverFactory;
+import eu.michaelclement.util.DriverType;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class WebShopTest {
     private WebDriver driver;
@@ -12,10 +19,32 @@ public class WebShopTest {
 
     @Test
     public void testValidLoginAndLogout() {
-        validLogin();
-        //assert-alom a sikeres logint, hogy lassan, hogy azert vagyok a vegen ujra a login oldalon, mert be- es kijelentkeztem
-        //nem azert, mert be sem sikerult jeletkezni
-        Assertions.assertEquals("https://www.michaelclement.eu/practice-webshop-products/", driver.getCurrentUrl());
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(6000)); //igy 10000 ms-et fog varni, mert masodszor is eliundul az implicitWait
+
+        //long polling = 2000;
+        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(5000), Duration.ofMillis(polling));
+
+        driver.get("https://www.michaelclement.eu/practice-webshop-login/");
+
+       // wait.until(d -> d.findElement(By.xpath("//input[@id='username']")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='username']")));
+
+
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        loginPage.fillUsernameField("practiceUser");
+        loginPage.fillPasswordField("practicePass");
+        loginPage.clickLoginButton();
+
+        wait.until(ExpectedConditions.urlToBe("https://www.michaelclement.eu/practice-webshop-products/"));
+
         headerPage.clickLogoutButton();
         Assertions.assertEquals("https://www.michaelclement.eu/practice-webshop-login/", driver.getCurrentUrl());
     }
