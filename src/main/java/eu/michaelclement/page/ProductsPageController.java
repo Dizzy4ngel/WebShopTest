@@ -20,6 +20,44 @@ public class ProductsPageController extends ProductsPageElements {
     public void filterMinPrice(Double price){
         waitHelper.fillField(minPriceField, price);
     }
+    public void filterMaxPrice(Double price){
+        waitHelper.fillField(maxPriceField, price);
+    }
+
+    public void sort(SortOption sortOption){
+        waitHelper.clickElement(sortDropdown);
+        switch (sortOption){
+            case PRICE -> {
+                waitHelper.clickElement(sortOptionPrice);
+            }
+            case NAME -> {
+                waitHelper.clickElement(sortOptionName);
+            }
+        }
+    }
+
+    /**
+     *
+     * @param index 1
+     */
+    //fluent API
+    public ProductsPageController clickNthPlusButton(Integer index){
+        waitHelper.clickElement(productQuantityPlusSigns.get(index - 1));
+        return this;
+    }
+    public ProductsPageController clickNthMinusButton(Integer index){
+        waitHelper.clickElement(productQuantityMinusSigns.get(index - 1));
+        return this;
+    }
+
+    public ProductsPageController fillNthProductQuantity(Integer index, Integer quantity){
+        waitHelper.fillField(productQuantityInputs.get(index - 1), quantity);
+        return this;
+    }
+
+    public String getNthProductTitle(Integer index) {
+        return waitHelper.getElementText(productTitles.get(index - 1));
+    }
 
 //    public void printListSize(){
 //        System.out.println(productTitles.size());

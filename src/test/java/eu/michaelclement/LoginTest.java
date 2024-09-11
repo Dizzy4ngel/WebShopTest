@@ -1,5 +1,9 @@
 package eu.michaelclement;
 
+import eu.michaelclement.data.TestContext;
+import eu.michaelclement.data.User;
+import eu.michaelclement.data.UserFactory;
+import eu.michaelclement.data.UserType;
 import eu.michaelclement.page.LoginPageController;
 import eu.michaelclement.page.ProductsPageController;
 import eu.michaelclement.util.DriverFactory;
@@ -10,30 +14,26 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
-public class LoginTest {
+public class LoginTest extends ParentTest{
     private WebDriver driver;
+
     private LoginPageController loginPage;
-    //private ProductsPageController productsPage;
+
+
+    //private TestContext testContext = new TestContext();
+
     @Test
-    public void testValidLogin(){
-        driver.get("https://www.michaelclement.eu/practice-webshop-login/");
-        loginPage.fillUsernameField("practiceUser");
-        loginPage.fillPasswordField("practicePass");
-        loginPage.clickLoginButton();
+    User user = new User("practiceUser", "practicePass");
+
+            loginPage.login(UserFactory.get(UserType.VALID_USER));
+
+//        int i = 1;
+//        productsPage.clickNthPlusButton(i);
+//        testContext.setProductTitle(productsPage.getNthProductTitle(i));
 
         Assertions.assertEquals("https://www.michaelclement.eu/practice-webshop-products/", driver.getCurrentUrl());
     }
 
-    @BeforeEach
-    public void openLogin(){
-        driver = DriverFactory.get(DriverType.CHROME);
-        loginPage = new LoginPageController(driver);
-        //productsPage = new ProductsPageController(driver);
-        driver.manage().window().maximize();
-    }
 
-    @AfterEach
-    public void tearDown() {
-        driver.quit();
     }
 }

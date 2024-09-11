@@ -32,5 +32,17 @@ public class WaitHelper {
     public void fillField(WebElement element, Double text) {
         fillField(element, String.valueOf(text));
     }
+    //ez az overload-nak egy felhasznalasa dumplikacio nelkul
+    public void fillField(WebElement element, Integer text) {
+        fillField(element, String.valueOf(text));
+    }
 
+    public String getElementText(WebElement element) {
+        wait.until( d -> !element.getText().isEmpty());
+        return element.getText();
+    }
+
+//    public String getElementValue(WebElement element){
+//
+//    }
 }

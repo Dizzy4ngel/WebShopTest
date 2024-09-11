@@ -23,7 +23,16 @@ public class ProductsPageElements {
 
     @FindBy(xpath = "//h3")
     protected List<WebElement> productTitles;
-
+    @FindBy(xpath = "//div[@data-product-id]/p/[1]")
+    protected List<WebElement> productDescriptions;
+    @FindBy(xpath = "//div[@data-product-id]/p/[2]")
+    protected List<WebElement> productPrices;
+    @FindBy(xpath = "//div[@class='product-quantity']/input")
+    protected List<WebElement> productQuantityInputs;
+    @FindBy(xpath = "//button[@class='plus-button']")
+    protected List<WebElement> productQuantityPlusSigns;
+    @FindBy(xpath = "//button[@class='minus-button']")
+    protected List<WebElement> productQuantityMinusSigns;
     public ProductsPageElements(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
