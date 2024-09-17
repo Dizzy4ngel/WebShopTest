@@ -1,4 +1,4 @@
-package eu.michaelclement.page;
+package eu.michaelclement.page.login;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

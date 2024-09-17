@@ -1,10 +1,7 @@
-package eu.michaelclement.page;
+package eu.michaelclement.page.products;
 
 import eu.michaelclement.util.WaitHelper;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.sql.SQLOutput;
 
 public class ProductsPageController extends ProductsPageElements {
     private final WaitHelper waitHelper;

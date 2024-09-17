@@ -1,4 +1,4 @@
-package eu.michaelclement.page;
+package eu.michaelclement.page.products;
 
 public enum SortOption {
     PRICE, NAME

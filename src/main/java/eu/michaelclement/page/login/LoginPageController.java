@@ -1,4 +1,4 @@
-package eu.michaelclement.page;
+package eu.michaelclement.page.login;
 
 import eu.michaelclement.data.User;
 import eu.michaelclement.util.WaitHelper;

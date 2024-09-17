@@ -1,16 +1,10 @@
 package eu.michaelclement;
 
-import eu.michaelclement.data.TestContext;
 import eu.michaelclement.data.User;
 import eu.michaelclement.data.UserFactory;
 import eu.michaelclement.data.UserType;
-import eu.michaelclement.page.LoginPageController;
-import eu.michaelclement.page.ProductsPageController;
-import eu.michaelclement.util.DriverFactory;
-import eu.michaelclement.util.DriverType;
-import org.junit.jupiter.api.AfterEach;
+import eu.michaelclement.page.login.LoginPageController;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 

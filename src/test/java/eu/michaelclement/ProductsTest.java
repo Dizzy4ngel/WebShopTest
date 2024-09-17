@@ -1,10 +1,9 @@
 package eu.michaelclement;
 
 import eu.michaelclement.data.OrderedProduct;
-import eu.michaelclement.data.User;
 import eu.michaelclement.data.UserFactory;
 import eu.michaelclement.data.UserType;
-import eu.michaelclement.page.ProductsPageController;
+import eu.michaelclement.page.products.ProductsPageController;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
